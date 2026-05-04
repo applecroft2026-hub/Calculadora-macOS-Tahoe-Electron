@@ -1,0 +1,64 @@
+{
+  "name": "calculadora",
+  "private": true,
+  "version": "0.0.0",
+  "main": "main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build:react": "vite build",
+    "build": "vite build && electron-builder",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "electron": "electron ."
+  },
+  "build": {
+    "appId": "com.snake.calculadorapro",
+    "productName": "Calculadora Pro",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "main.cjs",
+      "Calculadora.ico"
+    ],
+    "win": {
+      "target": "portable"
+    },
+    "portable": {
+      "artifactName": "CalculadoraPro.exe"
+    }
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "date-fns": "^4.1.0",
+    "electron-is-dev": "^3.0.1",
+    "framer-motion": "^12.36.0",
+    "lucide-react": "^0.577.0",
+    "mathjs": "^15.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "recharts": "^3.8.0",
+    "wait-on": "^9.0.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.0",
+    "autoprefixer": "^10.4.27",
+    "electron": "^41.0.1",
+    "electron-builder": "^26.8.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "png-to-ico": "^3.0.1",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1",
+    "vite": "^8.0.0"
+  }
+}
